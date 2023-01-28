@@ -1,4 +1,6 @@
-    async function getPhotographers() {
+/* eslint-disable no-undef */
+
+async function getPhotographers() {
         // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
         // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
         let photographers = [
@@ -34,13 +36,13 @@
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
         });
-    };
+    }
 
     async function init() {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
         displayData(photographers);
-    };
+    }
     
     init();
     
