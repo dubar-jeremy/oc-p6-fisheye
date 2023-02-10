@@ -18,6 +18,17 @@ function photographerFactory(data) {
             src: picture, 
             className: ["card-img"]
         });
+
+        const cardLink = elementBuilder({
+            type: 'a',
+            href: queryBuilder({
+                page: 'photographer.html',
+                query: {
+                    userId: id, 
+                }
+            }),
+            className: ["card-link"]
+        })
         // mettre un role sur cardTitle ?
         const cardTitle = elementBuilder({
             type: 'h2',
@@ -44,11 +55,15 @@ function photographerFactory(data) {
             className: ["card-price"]
         });
 
+
         article.appendChild(cardPicture);
         article.appendChild(cardTitle);
         article.appendChild(cardLocation);
         article.appendChild(cardDescription);
         article.appendChild(cardPrice);
+        cardPicture.parentNode.insertBefore(cardLink, cardPicture);
+        cardLink.appendChild(cardPicture)
+        cardLink.appendChild(cardTitle);
 
         return (article);
     }

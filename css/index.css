@@ -45,5 +45,8 @@
 .card-price {
     color: #757575;
     font-size: 12px;
+}
 
+.card-link {
+    text-decoration: none;
 }
