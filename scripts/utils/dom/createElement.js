@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-function elementBuilder(elementProperties) {
+function createElement(elementProperties) {
     const element = document.createElement(elementProperties?.type);
     element.textContent = elementProperties?.content
     elementProperties?.className && elementProperties.className.map(c => element.classList.add(c))

@@ -2,71 +2,41 @@
 /* eslint-disable no-unused-vars */
 function photographerFactory(data) {
     const { name, portrait, id, city, country, tagline, price } = data;
-
+    
     const picture = `assets/photographers/${portrait}`;
-
+        data.picture = picture;
 
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
+
+        const article = document.createElement('article');
         article.classList.add('card')
-        
-        const cardPicture = elementBuilder({
-            type: 'img',
-            role: 'img',
-            ariaLabel: `portrait de ${name}`,
-            alt: `portrait de ${name}`,
-            src: picture, 
-            className: ["card-img"]
-        });
 
-        const cardLink = elementBuilder({
-            type: 'a',
-            href: queryBuilder({
-                page: 'photographer.html',
-                query: {
-                    userId: id, 
-                }
-            }),
-            className: ["card-link"]
-        })
-        // mettre un role sur cardTitle ?
-        const cardTitle = elementBuilder({
-            type: 'h2',
-            content: name,
-            ariaLabel: 'title of the card',
-            className: ["card-title"]
-        });
-        const cardLocation = elementBuilder({
-            type: 'p',
-            content: `${city}, ${country}`,
-            ariaLabel: `location of ${name}`,
-            className: ["card-location"]
-        });
-        const cardDescription = elementBuilder({
-            type: 'p',
-            content: tagline,
-            ariaLabel: `the job description of ${name}`,
-            className: ["card-description"]
-        });
-        const cardPrice = elementBuilder({
-            type: 'p',
-            content: `${price}€/jour`,
-            ariaLabel: `the price of ${name}`,
-            className: ["card-price"]
-        });
+        const params = {
+            data: data,
+            options: { 
+                cardLink: { href: { query: { userId: id } },  page: 'photographer.html' },
+            }
+        }
 
+        const { cardPicture, cardLink, cardTitle, cardLocation, cardDescription, cardPrice } = getElements(params);
 
-        article.appendChild(cardPicture);
-        article.appendChild(cardTitle);
-        article.appendChild(cardLocation);
-        article.appendChild(cardDescription);
-        article.appendChild(cardPrice);
+        appendElement(article, [cardPicture, cardTitle, cardLocation, cardDescription, cardPrice])
         cardPicture.parentNode.insertBefore(cardLink, cardPicture);
-        cardLink.appendChild(cardPicture)
-        cardLink.appendChild(cardTitle);
+        appendElement(cardLink, [cardTitle, cardPicture])
+
 
         return (article);
     }
 
-    return { name, picture, id, city, country, tagline, getUserCardDOM }
+    function getUserData() {
+        return {
+            id,
+            name,
+            city,
+            tagline,
+            price
+        }
+    }
+
+    return { getUserData, getUserCardDOM }
 }
