@@ -20,7 +20,7 @@ function photographerFactory(data) {
             }
         }
 
-        const { cardPicture, cardLink, cardTitle, cardLocation, cardDescription, cardPrice } = getElements(params);
+        const { cardPicture, cardLink, cardTitle, cardLocation, cardDescription, cardPrice } = getPhotographerElements(params);
 
         appendElement(article, [cardPicture, cardTitle, cardLocation, cardDescription, cardPrice])
         cardPicture.parentNode.insertBefore(cardLink, cardPicture);
@@ -41,7 +41,7 @@ function photographerFactory(data) {
             data: data
         }
 
-        const { cardPicture: photographerPicture, cardTitle, cardLocation, cardDescription } = getElements(params);
+        const { cardPicture: photographerPicture, cardTitle, cardLocation, cardDescription } = getPhotographerElements(params);
 
         appendElement(photographerInfo, [cardTitle, cardLocation, cardDescription])
     

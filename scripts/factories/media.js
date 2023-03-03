@@ -9,8 +9,8 @@ function mediaFactory(medias, name) {
      * REPLACE (ID = 930)
      */
 
-    const picture = `assets/medias/Ellie-Rose/${image}`;
-    const photographerVideo = `assets/medias/Ellie-Rose/${video}`;
+    const picture = `/assets/medias/Ellie-Rose/${image}`;
+    const photographerVideo = `/assets/medias/Ellie-Rose/${video}`;
 
 
     function photographerMediasPicture() {
@@ -27,7 +27,7 @@ function mediaFactory(medias, name) {
             }
         }
 
-        const { cardPicture } = getElements(params);
+        const { cardPicture } = getPhotographerElements(params);
 
         appendElement(card, [cardPicture])
 
@@ -48,7 +48,7 @@ function mediaFactory(medias, name) {
             }
         }
 
-        const { cardVideo } = getElements(params);
+        const { cardVideo } = getMediaElements(params);
 
 
         appendElement(card, [cardVideo])
