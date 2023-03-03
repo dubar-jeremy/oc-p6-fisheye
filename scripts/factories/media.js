@@ -2,8 +2,6 @@
 /* eslint-disable no-unused-vars */
 function mediaFactory(medias, name) {
 
-    console.log(medias)
-
     const { id, photographId, title, image, video, likes } = medias
 
 

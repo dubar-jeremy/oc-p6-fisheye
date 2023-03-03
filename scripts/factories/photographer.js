@@ -3,7 +3,7 @@
 function photographerFactory(data) {
     const { name, portrait, id, city, country, tagline, price } = data;
     
-    const picture = `assets/photographers/${portrait}`;
+    const picture = `/assets/photographers/${portrait}`;
         data.picture = picture;
 
     function homePageCard() {
@@ -44,10 +44,7 @@ function photographerFactory(data) {
         const { cardPicture: photographerPicture, cardTitle, cardLocation, cardDescription } = getElements(params);
 
         appendElement(photographerInfo, [cardTitle, cardLocation, cardDescription])
-        
-        cardTitle.addEventListener('keyDown', () => {
-            console.log('ok')
-        })
+    
 
         return {photographerPicture, photographerInfo}
 

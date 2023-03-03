@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 function queryBuilder({ page, query }) {
 
-    let url = window.location.origin + '/oc-p6-fisheye/';
+    
+    let url = window.location.origin + '/';
 
     if (page) {
         url += page

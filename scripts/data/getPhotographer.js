@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 async function getPhotographerById(id) {
 
-    const response = await fetch('/oc-p6-fisheye/data/photographers.json');
+    const response = await fetch('/data/photographers.json');
 
     if (!response.ok) {
         throw new Error("Data not found");
