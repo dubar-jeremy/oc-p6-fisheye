@@ -6,10 +6,12 @@ function photographerFactory(data) {
     const picture = `assets/photographers/${portrait}`;
         data.picture = picture;
 
-    function getUserCardDOM() {
+    function homePageCard() {
 
-        const article = document.createElement('article');
-        article.classList.add('card')
+        const article = createElement({
+            type: 'article',
+            className: ['card']
+        })
 
         const params = {
             data: data,
@@ -28,6 +30,30 @@ function photographerFactory(data) {
         return (article);
     }
 
+    function photographerPageCard() {
+
+        const photographerInfo = createElement({
+            type: 'div',
+            className: ['photographer-info']
+        })
+
+        const params = {
+            data: data
+        }
+
+        const { cardPicture: photographerPicture, cardTitle, cardLocation, cardDescription } = getElements(params);
+
+        appendElement(photographerInfo, [cardTitle, cardLocation, cardDescription])
+        
+        cardTitle.addEventListener('keyDown', () => {
+            console.log('ok')
+        })
+
+        return {photographerPicture, photographerInfo}
+
+    }
+
+
     function getUserData() {
         return {
             id,
@@ -38,5 +64,5 @@ function photographerFactory(data) {
         }
     }
 
-    return { getUserData, getUserCardDOM }
+    return { getUserData, homePageCard, photographerPageCard }
 }

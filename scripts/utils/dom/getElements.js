@@ -3,6 +3,7 @@
 
 function getElements(props) {
     const { data, options } = props
+
     return {
         cardPicture: createElement({
             type: 'img',
@@ -43,6 +44,19 @@ function getElements(props) {
             content: options?.cardPrice?.content ?? `${data.price}€/jour`,
             ariaLabel: options?.cardPrice?.ariaLabel ?? `the price of ${data.name}`,
             className: options?.cardPrice?.className ?? ["card-price"]
+        }),
+        cardVideo: createElement({
+            type: 'video',
+            src: options?.cardVideo?.src ?? data.video,
+            className: options?.cardVideo?.className ?? ["card-video"],
+            // width: options?.cardVideo?.width ?? "auto",
+            // height: options?.cardVideo?.height ?? "auto"
+        }),
+        button: createElement({
+            type: 'button',
+            content: options?.button?.content,
+            className: options?.button?.className,
+            name: options?.button?.name,
         })
     }
 }

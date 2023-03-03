@@ -20,5 +20,19 @@ function createElement(elementProperties) {
         element.setAttribute("target", elementProperties?.target);    
     }
 
+    if(elementProperties.type === "button"){
+        element.innerHTML = elementProperties?.content
+        element.name = elementProperties?.name
+    }
+
+    if(elementProperties.type === "video"){
+        const videoSource = document.createElement('source');
+        videoSource.setAttribute('src', elementProperties?.src);
+        element.appendChild(videoSource);
+        element.setAttribute('controls', '');
+        // element.setAttribute('width', elementProperties?.width);
+        // element.setAttribute('height', elementProperties?.height);
+    }
+        
     return element;
 }

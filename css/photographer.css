@@ -3,6 +3,8 @@
 }
 
 .photograph-header {
+    display: flex;
+    justify-content: center;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
@@ -19,6 +21,7 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    align-self: center;
 }
 
 .modal {
@@ -73,4 +76,16 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+/* section display media  */
+
+.media-picture {
+    width: 100px;
+    height: auto;
+}
+
+.media-video {
+    width: 500px;
+    height: auto;
 }
