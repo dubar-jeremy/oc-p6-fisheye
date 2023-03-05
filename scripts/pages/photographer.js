@@ -8,8 +8,8 @@ async function displayData(photographer){
     const {photographerInfo, photographerPicture}  = photographerModel.photographerPageCard()
     appendElement(photographHeader, [photographerInfo, photographerPicture])
 
-    // main content
 
+    // add create and append in a custom method
     const main = document.querySelector('main');
 
     const section = createElement({
@@ -18,6 +18,12 @@ async function displayData(photographer){
     })
 
     appendElement(main, [section])
+    
+
+    const photographerInfoModel = infoFactory(photographer.media)
+
+    photographerInfoModel.getPhotographerInfo()
+
 
     photographer.media.forEach((media) => {
         const photographerMediaModel = mediaFactory(media, photographer.photographer.name)

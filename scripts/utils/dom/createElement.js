@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 function createElement(elementProperties) {
     const element = document.createElement(elementProperties?.type);
+    
     element.textContent = elementProperties?.content
     elementProperties?.className && elementProperties.className.map(c => element.classList.add(c))
 
@@ -12,7 +13,8 @@ function createElement(elementProperties) {
 
     if(elementProperties.type === "img"){
         element.setAttribute("alt", elementProperties?.alt);
-        element.setAttribute("src", elementProperties?.src);    
+        element.setAttribute("src", elementProperties?.src);  
+        element.setAttribute("tabindex", 0)  
     }
 
     if(elementProperties.type === "a"){
