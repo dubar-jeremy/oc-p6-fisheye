@@ -1,5 +1,13 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
+import { photographerHeader } from '../utils/photographer/photographer.header.js';
+import { photographerSection } from '../utils/photographer/photographer.section.js';
+import { getUrlParam } from '../utils/getUrlParam.js';
+import { getPhotographerById } from '../data/getPhotographer.js';
+import { photographerSectionInfo } from '../utils/photographer/photographer.section-info.js';
+import { photographerMedias } from '../utils/photographer/photographer.medias.js';
+import { filterMedias } from '../utils/photographer/filterMedias.js';
+import { cleanDom } from '../utils/photographer/cleanDom.js';
+
+
 async function displayData(photographer, options = {
     createHeader: true,
     sectionInfo: true,

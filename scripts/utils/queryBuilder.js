@@ -21,3 +21,5 @@ function queryBuilder({ page, query }) {
 
     return url;
 }
+
+export { queryBuilder }

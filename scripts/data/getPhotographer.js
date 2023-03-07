@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 async function getPhotographerById(id) {
 
     const response = await fetch('/data/photographers.json');
@@ -19,3 +18,5 @@ async function getPhotographerById(id) {
 
     return data
 }
+
+export { getPhotographerById }

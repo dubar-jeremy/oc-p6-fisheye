@@ -1,9 +1,7 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import { createElement } from "../utils/dom/createElement.js";
+import { appendElement } from "../utils/dom/appendElement.js";
+import { getMediaElements } from "../utils/dom/getMediaElements.js";
 function infoFactory(medias) {
-
-    const { title, likes } = medias
-
 
     function getPhotographerInfo(){
         const main = document.querySelector('main');
@@ -33,3 +31,5 @@ function infoFactory(medias) {
 
     return { getPhotographerInfo }
 }
+
+export { infoFactory }

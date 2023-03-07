@@ -1,8 +1,12 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-function mediaFactory(medias, name) {
+import { createElement } from '../utils/dom/createElement.js'
+import { appendElement } from '../utils/dom/appendElement.js'
+import { getMediaElements } from '../utils/dom/getMediaElements.js';
+import { getPhotographerElements } from '../utils/dom/getPhotographerElements.js'
 
-    const { id, photographId, title, image, video, likes } = medias
+
+function mediaFactory(medias) {
+
+    const { title, image, video, likes } = medias
 
     
 
@@ -120,3 +124,5 @@ function mediaFactory(medias, name) {
 
     return { photographerMediasPicture, photographerMediasVideo, photographerMediasInfo }
 }
+
+export { mediaFactory }

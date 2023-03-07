@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 async function getPhotographers() {
 
     const response = await fetch('data/photographers.json');
@@ -14,3 +13,5 @@ async function getPhotographers() {
         media
     }
 }
+
+export { getPhotographers }

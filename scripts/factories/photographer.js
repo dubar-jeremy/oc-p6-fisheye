@@ -1,10 +1,13 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import { createElement } from "../utils/dom/createElement.js";
+import { getPhotographerElements } from "../utils/dom/getPhotographerElements.js";
+import { appendElement } from "../utils/dom/appendElement.js";
+
+
 function photographerFactory(data) {
-    const { name, portrait, id, city, country, tagline, price } = data;
-    
+    const { name, portrait, id, city, tagline, price } = data;
+
     const picture = `/assets/photographers/${portrait}`;
-        data.picture = picture;
+    data.picture = picture;
 
     function homePageCard() {
 
@@ -15,8 +18,8 @@ function photographerFactory(data) {
 
         const params = {
             data: data,
-            options: { 
-                cardLink: { href: { query: { userId: id } },  page: 'photographer.html' },
+            options: {
+                cardLink: { href: { query: { userId: id } }, page: 'photographer.html' },
             }
         }
 
@@ -44,9 +47,9 @@ function photographerFactory(data) {
         const { cardPicture: photographerPicture, cardTitle, cardLocation, cardDescription } = getPhotographerElements(params);
 
         appendElement(photographerInfo, [cardTitle, cardLocation, cardDescription])
-    
 
-        return {photographerPicture, photographerInfo}
+
+        return { photographerPicture, photographerInfo }
 
     }
 
@@ -63,3 +66,5 @@ function photographerFactory(data) {
 
     return { getUserData, homePageCard, photographerPageCard }
 }
+
+export { photographerFactory }

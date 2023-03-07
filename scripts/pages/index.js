@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+import { photographerFactory } from '../factories/photographer.js'
+import { getPhotographers } from '../data/getPhotographers.js';
 
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");

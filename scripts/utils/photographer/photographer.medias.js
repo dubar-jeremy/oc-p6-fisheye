@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import { mediaFactory } from "../../factories/media.js";
 function photographerMedias(photographer){
     const section = document.querySelector('.section-work')
 
@@ -17,3 +16,5 @@ function photographerMedias(photographer){
 
     });
 }
+
+export { photographerMedias }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 function createElement(elementProperties) {
     const element = document.createElement(elementProperties?.type);
     
@@ -38,3 +37,5 @@ function createElement(elementProperties) {
         
     return element;
 }
+
+export { createElement }

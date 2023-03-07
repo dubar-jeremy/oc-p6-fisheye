@@ -1,6 +1,5 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-
+import { createElement } from "./createElement.js"
+import { queryBuilder } from "../queryBuilder.js"
 function getPhotographerElements(props) {
     const { data, options } = props
 
@@ -53,3 +52,5 @@ function getPhotographerElements(props) {
         })
     }
 }
+
+export { getPhotographerElements }

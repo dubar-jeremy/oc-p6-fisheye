@@ -1,6 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
+import { appendElement } from "../dom/appendElement.js"
+import { createElement } from "../dom/createElement.js"
+
 function photographerSection() {
+    const main = document.querySelector('main');
     const section = createElement({
         type: 'section',
         className: ['section-work']
@@ -8,3 +10,5 @@ function photographerSection() {
 
     appendElement(main, [section])
 }
+
+export { photographerSection }

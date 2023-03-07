@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+import { createElement } from "./createElement.js"
 
 function getMediaElements(props) {
     const { data, options } = props
@@ -38,3 +37,5 @@ function getMediaElements(props) {
 
     return elementsList
 }
+
+export { getMediaElements }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 function filterMedias(media, options) {
     switch (options) {
         case 'ASC':
@@ -14,3 +13,5 @@ function filterMedias(media, options) {
             undefined;
     }
 }
+
+export { filterMedias }
