@@ -1,49 +1,38 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-async function displayData(photographer){
+async function displayData(photographer, options = {
+    createHeader: true,
+    sectionInfo: true,
+    createSectionWork: true
+}) {
 
-    // header
-    const photographHeader = document.querySelector('.photograph-header');
-    const photographerModel = photographerFactory(photographer.photographer);
-    const {photographerInfo, photographerPicture}  = photographerModel.photographerPageCard()
-    appendElement(photographHeader, [photographerInfo, photographerPicture])
+    const { createHeader, sectionInfo, createSectionWork } = options
 
+    createHeader && photographerHeader(photographer.photographer)
+    createSectionWork && photographerSection()
+    sectionInfo && photographerSectionInfo(photographer.media);
 
-    // add create and append in a custom method
-    const main = document.querySelector('main');
-
-    const section = createElement({
-        type: 'section',
-        className: ['section-work']
-    })
-
-    appendElement(main, [section])
-    
-
-    const photographerInfoModel = infoFactory(photographer.media)
-
-    photographerInfoModel.getPhotographerInfo()
-
-
-    photographer.media.forEach((media) => {
-        const photographerMediaModel = mediaFactory(media, photographer.photographer.name)
-        if(media.image && !media.video){
-            const userCardDOM = photographerMediaModel.photographerMediasPicture();
-            section.appendChild(userCardDOM);
-        }
-
-        if(media.video && !media.image){
-            const userCardDOM = photographerMediaModel.photographerMediasVideo();
-            section.appendChild(userCardDOM);
-        }
- 
-    });
-
+    photographerMedias(photographer);
 }
 
-async function init(){
+async function init() {
     const userId = getUrlParam('userId')
     const photographer = await getPhotographerById(Number(userId))
+
+    document.querySelector('.sort_title').addEventListener("click", () => {
+        cleanDom()
+        filterMedias(photographer.media, 'RECENT');
+
+        const options = {
+            createHeader: false,
+            sectionInfo: false,
+            createSectionWork: true
+
+        }
+
+        displayData(photographer, options)
+
+    })
 
     displayData(photographer)
 }

@@ -16,6 +16,9 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
+      <div>
+        <button class="sort_title">trier par titre</button>
+      </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -32,6 +35,12 @@
 				</form>
 			</div>
 		</div>
+    <script src="/scripts/utils/photographer/photographer.header.js"></script>
+    <script src="/scripts/utils/photographer/photographer.section.js"></script>
+    <script src="/scripts/utils/photographer/photographer.section-info.js"></script>
+    <script src="/scripts/utils/photographer/photographer.medias.js"></script>
+    <script src="/scripts/utils/photographer/cleanDom.js"></script>
+    <script src="/scripts/utils/photographer/filterMedias.js"></script>
     <script src="/scripts/data/getPhotographer.js"></script>
     <script src="/scripts/factories/info.js"></script>
     <script src="/scripts/factories/photographer.js"></script>
@@ -44,5 +53,6 @@
     <script src="/scripts/utils/getUrlParam.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/sortElement.js"></script>
   </body>
 </html>
