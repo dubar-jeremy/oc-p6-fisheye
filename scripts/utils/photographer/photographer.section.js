@@ -1,5 +1,5 @@
-import { appendElement } from "../dom/appendElement.js"
-import { createElement } from "../dom/createElement.js"
+import { appendElement } from "../shared/dom/appendElement.js"
+import { createElement } from "../shared/dom/createElement.js"
 
 function photographerSection() {
     const main = document.querySelector('main');

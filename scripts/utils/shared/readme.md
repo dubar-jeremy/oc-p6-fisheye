@@ -1,0 +1,1 @@
+# Generics functions that can be used between modules.

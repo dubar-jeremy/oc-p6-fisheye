@@ -1,5 +1,5 @@
-import { photographerFactory } from "../../factories/photographer.js";
-import { appendElement } from "../dom/appendElement.js";
+import { photographerFactory } from "../../factories/photographer.factory.js";
+import { appendElement } from "../shared/dom/appendElement.js";
 
 function photographerHeader(photographer) {
     const photographHeader = document.querySelector('.photograph-header');

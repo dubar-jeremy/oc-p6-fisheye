@@ -1,4 +1,5 @@
-import { infoFactory } from "../../factories/info.js"
+import { infoFactory } from "../../factories/info.factory.js"
+
 function photographerSectionInfo(media) {
     const photographerInfoModel = infoFactory(media)
 

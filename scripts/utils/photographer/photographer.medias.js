@@ -1,4 +1,4 @@
-import { mediaFactory } from "../../factories/media.js";
+import { mediaFactory } from "../../factories/media.factory.js";
 function photographerMedias(photographer){
     const section = document.querySelector('.section-work')
 
