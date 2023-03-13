@@ -19,9 +19,9 @@ async function displayData(photographer, options = DEFAULT_OPTIONS) {
     const { createHeader, sectionInfo, createSectionWork, createSectionFilter } = options
 
     createHeader && photographerHeader(photographer.photographer)
+    createSectionFilter && createFilters(photographer);
     createSectionWork && photographerSection()
     sectionInfo && photographerSectionInfo(photographer.media, photographer.photographer.price);
-    createSectionFilter && createFilters(photographer);
 
     photographerMedias(photographer);
 }

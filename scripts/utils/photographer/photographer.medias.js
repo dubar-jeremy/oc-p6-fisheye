@@ -2,7 +2,6 @@ import { mediaFactory } from "../../factories/media.factory.js";
 function photographerMedias(photographer){
     const section = document.querySelector('.section-work')
 
-
     photographer.media.forEach((media) => {
         const photographerMediaModel = mediaFactory(media)
         if (media.image && !media.video) {

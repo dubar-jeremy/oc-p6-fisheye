@@ -331,3 +331,10 @@ form input {
     bottom: 0;
     right: 1em;
 }
+
+.container-filter {
+    background-color: #901C1C;
+    padding: 1em;
+    color: white;
+}
+

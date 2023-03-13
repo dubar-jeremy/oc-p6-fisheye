@@ -2,18 +2,17 @@ import { createElement } from '../utils/shared/dom/createElement.js'
 import { appendElement } from '../utils/shared/dom/appendElement.js'
 import { getMediaElements } from '../utils/media/media.elements.js';
 import { photographerElements } from '../utils/photographer/photographer.elements.js'
+import { getUrlParam } from '../utils/getUrlParam.js';
 
 
 function mediaFactory(medias) {
 
     const { title, image, video, likes } = medias
 
-    /**
-     * REPLACE (ID = 930)
-     */
+    const userId = getUrlParam('userId')
 
-    const picture = `/assets/medias/Ellie-Rose/${image}`;
-    const photographerVideo = `/assets/medias/Ellie-Rose/${video}`;
+    const picture = `/assets/medias/${userId}/${image}`;
+    const photographerVideo = `/assets/medias/${userId}/${video}`;
 
 
     function photographerMediasPicture() {

@@ -58,9 +58,9 @@ function createFilters(photographer) {
 
 
     const options = [
-        { type: 'populaire', content: 'populare', className: 'populare', callBack: getPopulareMedia },
-        { type: 'asc', content: 'asc', className: 'asc', callBack: getAscMedia },
+        { type: 'populaire', content: 'popularité', className: 'populare', callBack: getPopulareMedia },
         { type: 'date', content: 'date', className: 'date', callBack: getNewMedia },
+        { type: 'asc', content: 'titre', className: 'asc', callBack: getAscMedia },
     ]
 
     const filters = filterModel.createFilters(options)
