@@ -4,8 +4,10 @@ function createElement(elementProperties) {
     element.textContent = elementProperties?.content
     elementProperties?.className && elementProperties.className.map(c => element.classList.add(c))
 
-    element.setAttribute("aria-label", elementProperties?.ariaLabel);
 
+    if(elementProperties?.ariaLabel){
+        element.setAttribute("aria-label", elementProperties.ariaLabel);
+    }
     if(elementProperties?.role) {
         element.setAttribute("role", elementProperties.role);
     }
@@ -13,12 +15,10 @@ function createElement(elementProperties) {
     if(elementProperties.type === "img"){
         element.setAttribute("alt", elementProperties?.alt);
         element.setAttribute("src", elementProperties?.src);  
-        element.setAttribute("tabindex", 0)  
     }
 
     if(elementProperties.type === "a"){
         element.setAttribute("href", elementProperties?.href);
-        element.setAttribute("target", elementProperties?.target);    
     }
 
     if(elementProperties.type === "button"){
@@ -31,8 +31,6 @@ function createElement(elementProperties) {
         videoSource.setAttribute('src', elementProperties?.src);
         element.appendChild(videoSource);
         element.setAttribute('controls', '');
-        // element.setAttribute('width', elementProperties?.width);
-        // element.setAttribute('height', elementProperties?.height);
     }
         
     return element;

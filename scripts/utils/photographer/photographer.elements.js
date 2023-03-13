@@ -7,10 +7,9 @@ function photographerElements(props) {
         cardPicture: createElement({
             type: 'img',
             role: options?.cardPicture?.role ?? 'img',
-            ariaLabel: options?.cardPicture?.ariaLabel ?? `portrait de ${data?.name}`,
-            alt: options?.cardPicture?.alt ?? `portrait de ${data?.name}`,
+            alt: options?.cardPicture?.alt ?? `photo de profile de ${data?.name}`,
             src: options?.cardPicture?.picture ?? data?.picture,
-            className: options?.cardPicture?.className ?? ['card-img']
+            className: options?.cardPicture?.className ?? ['photographer-profile-img']
         }),
         cardLink: createElement({
             type: 'a',
@@ -18,31 +17,27 @@ function photographerElements(props) {
                 page: options?.cardLink?.page,
                 query: options?.cardLink?.href?.query
             }),
-            className: options?.cardLink?.className ?? ["card-link"]
+            className: options?.cardLink?.className ?? ["photographer-link"]
         }),
         cardTitle: createElement({
             type: options?.cardTitle?.type ?? 'h2',
             content: options?.cardTitle?.content ?? data?.name,
-            ariaLabel: options?.cardTitle?.ariaLabel ?? 'title of the card',
-            className: options?.cardTitle?.className ?? ["card-title"]
+            className: options?.cardTitle?.className ?? ["photographer-name"]
         }),
         cardLocation: createElement({
             type: options?.cardLocation?.type ?? 'p',
             content: options?.cardLocation?.content ?? `${data?.city}, ${data?.country}`,
-            ariaLabel: options?.cardLocation?.ariaLabel ?? `location of ${data?.name}`,
-            className: options?.cardLocation?.className ?? ["card-location"]
+            className: options?.cardLocation?.className ?? ["photographer-location"]
         }),
         cardDescription: createElement({
             type: options?.cardDescription?.type ?? 'p',
             content: options?.cardDescription?.content ?? data?.tagline,
-            ariaLabel: options?.cardDescription?.ariaLabel ?? `the job description of ${data?.name}`,
-            className: options?.cardDescription?.className ?? ["card-description"]
+            className: options?.cardDescription?.className ?? ["photographer-motto"]
         }),
         cardPrice: createElement({
             type: options?.cardPrice?.type ?? 'p',
             content: options?.cardPrice?.content ?? `${data?.price}€/jour`,
-            ariaLabel: options?.cardPrice?.ariaLabel ?? `the price of ${data?.name}`,
-            className: options?.cardPrice?.className ?? ["card-price"]
+            className: options?.cardPrice?.className ?? ["photographer-price"]
         }),
         button: createElement({
             type: 'button',

@@ -20,13 +20,13 @@ function mediaFactory(medias) {
 
         const card = createElement({
             type: 'article',
-            className: ['photographer-work']
+            className: ['photographer-media']
         })
 
         const params = {
             data: medias,
             options: {
-                cardPicture: { picture: picture, className: ['media-picture'], ariaLabel: "test", alt: "test" },
+                cardPicture: { picture: picture, className: ['photo'], ariaLabel: "test", alt: title },
                 cardLikes: { content: likes},
                 cardTitle: { content: title },
             }
@@ -46,7 +46,7 @@ function mediaFactory(medias) {
 
         const card = createElement({
             type: 'article',
-            className: ['photographer-work']
+            className: ['photographer-media']
         })
 
         const params = {
@@ -73,12 +73,7 @@ function mediaFactory(medias) {
 
         const mainContentContainer = createElement({
             type: 'div',
-            className: ['photographer-work-main-container']
-        })
-
-        const contentContainer = createElement({
-            type: 'div',
-            className: ['photographer-work-container']
+            className: ['photo__details']
         })
 
         const likesContainer = createElement({
@@ -86,9 +81,8 @@ function mediaFactory(medias) {
             className: ['photographer-work-container-like']
         })
         
-        appendElement(contentContainer, [cardTitle])
         appendElement(likesContainer, [cardLikes, cardIcon])
-        appendElement(mainContentContainer, [contentContainer, likesContainer])
+        appendElement(mainContentContainer, [cardTitle, likesContainer])
 
         return { mainContentContainer }
     }
@@ -98,7 +92,7 @@ function mediaFactory(medias) {
         
         
         const sectionInfo = createElement({
-            type: 'section-info',
+            type: 'section',
             className: ['section-info']
         })
     

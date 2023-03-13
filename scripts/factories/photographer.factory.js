@@ -13,7 +13,7 @@ function photographerFactory(data) {
 
         const article = createElement({
             type: 'article',
-            className: ['card']
+            className: ['photographer-article']
         })
 
         const params = {
@@ -41,7 +41,10 @@ function photographerFactory(data) {
         })
 
         const params = {
-            data: data
+            data: data,
+            options: {
+                cardPicture: { alt: name }
+            }
         }
 
         const { cardPicture: photographerPicture, cardTitle, cardLocation, cardDescription } = photographerElements(params);

@@ -7,23 +7,22 @@ function getMediaElements(props) {
         cardTitle: createElement({
             type: options?.cardTitle?.type ?? 'span',
             content: options?.cardTitle?.content ?? 'title',
-            ariaLabel: options?.cardTitle?.ariaLabel ?? 'aria label',
-            className: options?.cardTitle?.className ?? ["work-card-title"]
+            className: options?.cardTitle?.className ?? ["photo__title-text"]
         }),
         cardLikes: createElement({
             type: options?.cardLikes?.type ?? 'span',
             content: options?.cardLikes?.content ?? '0',
-            ariaLabel: options?.cardLikes?.ariaLabel ?? 'aria label',
-            className: options?.cardLikes?.className ?? ["work-card-like"]
+            className: options?.cardLikes?.className ?? ["photo__likes-count"]
         }),
         cardIcon: createElement({
             type: options?.cardIcon?.type ?? 'i',
+            ariaLabel: options?.cardLikes?.ariaLabel ?? 'likes',
             className: options?.cardIcon?.className ?? ["fa-solid", "fa-heart"]
         }),
         cardPrice: createElement({
             type: options?.cardPrice?.type ?? 'span',
-            className: options?.cardPrice?.className ?? ["card-price"],
-            content: options?.cardPrice?.content + `$/jour` ?? '10$/jour',
+            className: options?.cardPrice?.className ?? ["photographer-price"],
+            content: options?.cardPrice?.content + `€/jour` ?? '10€/jour',
         }),
     }
 

@@ -20,7 +20,7 @@ async function displayData(photographer, options = DEFAULT_OPTIONS) {
 
     createHeader && photographerHeader(photographer.photographer)
     createSectionWork && photographerSection()
-    sectionInfo && photographerSectionInfo(photographer.media);
+    sectionInfo && photographerSectionInfo(photographer.media, photographer.photographer.price);
     createSectionFilter && createFilters(photographer);
 
     photographerMedias(photographer);
@@ -29,24 +29,6 @@ async function displayData(photographer, options = DEFAULT_OPTIONS) {
 async function init() {
     const userId = getUrlParam('userId')
     const photographer = await getPhotographerById(Number(userId))
-
-    document.querySelector('.asc')
-
-    // document.querySelector('.sort_title').addEventListener("click", () => {
-    //     cleanDom()
-    //     filterMedias(photographer.media, 'RECENT');
-
-    //     const options = {
-    //         createHeader: false,
-    //         sectionInfo: false,
-    //         createSectionWork: true,
-    //         createSectionFilter: false,
-
-    //     }
-
-    //     displayData(photographer, options)
-
-    // })
 
     displayData(photographer)
 }

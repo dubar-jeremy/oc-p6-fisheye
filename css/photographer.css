@@ -4,7 +4,8 @@
 
 .photograph-header {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
@@ -89,14 +90,14 @@ form input {
     gap: 2em;
 }
 
-.photographer-work {
+.photographer-media {
     align-self: center;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.media-picture {
+.photo {
     object-fit: cover;
     width: 100%;
     height: 300px;
@@ -108,7 +109,214 @@ form input {
     height: 300px;
 }
 
-.photographer-work-main-container {
+.photo__details {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-info {
+    background: #DB8876;
+    display: flex;
+    gap: 2em;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    right: 1em;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+h1 {
+    color: #901C1C;
+    margin-right: 100px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 100px;
+}
+
+.photographer-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+}
+
+.photographer-section article {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.photographer-section article h2 {
+    color: #D3573C;
+    font-size: 36px;
+}
+
+.photographer-section article img {
+    height: 200px;
+    width: 200px;
+}
+
+#contact_modal {
+    display: none;
+}
+
+
+.contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+    order: 2;
+}
+
+.photographer-name {
+    color: #D3573C;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.photographer-info {
+    order: 1;
+}
+
+.photographer-location {
+    color: #901C1C;
+    margin-bottom: 5px;
+}
+
+.photographer-profile-img {
+    order: 3;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: auto;
+}
+
+.modal header {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modal header img {
+    cursor: pointer;
+}
+
+.modal header h2 {
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    color: #312E2E;
+    font-size: 36px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
+}
+
+form input {
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* section display media  */
+
+.section-work {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    padding: 2em;
+    gap: 2em;
+}
+
+.photographer-media {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.photo {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.photo__details {
+    padding-top: 0.5em;
+}
+.photographer-work-container-like {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: #901C1C;
+}
+.photo__title-text {
+    color: #901C1C;
+
+}
+
+.media-video {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.photo__details {
     width: 100%;
     display: flex;
     justify-content: space-between;
