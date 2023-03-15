@@ -16,7 +16,7 @@ function infoFactory(medias, price) {
         const params = {
             data: medias,
             options: {
-                cardLikes: { content: medias.countTotalLikes },
+                cardLikes: { content: medias.countTotalLikes, id: medias.id, className: ["photo__likes-count", "totalLikes"] },
                 cardPrice: { content: price },
             }
         }

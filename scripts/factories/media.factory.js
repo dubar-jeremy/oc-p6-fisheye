@@ -26,17 +26,16 @@ function mediaFactory(medias) {
             data: medias,
             options: {
                 cardPicture: { picture: picture, className: ['photo'], ariaLabel: "test", alt: title },
-                cardLikes: { content: likes},
+                cardLikes: { content: likes, id: medias.id },
                 cardTitle: { content: title },
             }
         }
 
         const { cardPicture } = photographerElements(params);
 
-        const {mainContentContainer } = createMediaContent(params)
+        const { mainContentContainer } = createMediaContent(params)
 
-
-        appendElement(card, [cardPicture, mainContentContainer ])
+        appendElement(card, [cardPicture, mainContentContainer])
 
         return card;
     }
@@ -52,7 +51,7 @@ function mediaFactory(medias) {
             data: medias,
             options: {
                 cardVideo: { src: photographerVideo, className: ['media-video'] },
-                cardLikes: { content: likes},
+                cardLikes: { content: likes, id: medias.id },
                 cardTitle: { content: title },
             }
         }
@@ -66,7 +65,7 @@ function mediaFactory(medias) {
         return card;
     }
 
-    function createMediaContent(params){
+    function createMediaContent(params) {
 
         const { cardTitle, cardLikes, cardIcon } = getMediaElements(params);
 
@@ -79,22 +78,22 @@ function mediaFactory(medias) {
             type: 'div',
             className: ['photographer-work-container-like']
         })
-        
+
         appendElement(likesContainer, [cardLikes, cardIcon])
         appendElement(mainContentContainer, [cardTitle, likesContainer])
 
         return { mainContentContainer }
     }
 
-    function photographerMediasInfo(){
+    function photographerMediasInfo() {
         const main = document.querySelector('main');
-        
-        
+
+
         const sectionInfo = createElement({
             type: 'section',
             className: ['section-info']
         })
-    
+
         const params = {
             data: medias,
             options: {
@@ -109,7 +108,6 @@ function mediaFactory(medias) {
         appendElement(sectionInfo, [cardLikes, cardPrice])
         appendElement(main, [sectionInfo])
     }
-
 
 
 

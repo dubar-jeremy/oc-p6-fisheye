@@ -4,10 +4,14 @@ function createElement(elementProperties) {
     element.textContent = elementProperties?.content
     elementProperties?.className && elementProperties.className.map(c => element.classList.add(c))
 
+    if(elementProperties?.id){
+        element.setAttribute("id", elementProperties?.id)
+    }
 
     if(elementProperties?.ariaLabel){
         element.setAttribute("aria-label", elementProperties.ariaLabel);
     }
+
     if(elementProperties?.role) {
         element.setAttribute("role", elementProperties.role);
     }

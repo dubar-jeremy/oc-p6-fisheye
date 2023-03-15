@@ -12,7 +12,8 @@ function getMediaElements(props) {
         cardLikes: createElement({
             type: options?.cardLikes?.type ?? 'span',
             content: options?.cardLikes?.content ?? '0',
-            className: options?.cardLikes?.className ?? ["photo__likes-count"]
+            className: options?.cardLikes?.className ?? ["photo__likes-count"],
+            id: options?.cardLikes?.id ?? '',
         }),
         cardIcon: createElement({
             type: options?.cardIcon?.type ?? 'i',

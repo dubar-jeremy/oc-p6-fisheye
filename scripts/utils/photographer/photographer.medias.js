@@ -1,5 +1,6 @@
 import { mediaFactory } from "../../factories/media.factory.js";
-function photographerMedias(photographer){
+import { addMediaLike } from "../media/media.addLike.js";
+function photographerMedias(photographer) {
     const section = document.querySelector('.section-work')
 
     photographer.media.forEach((media) => {
@@ -14,7 +15,10 @@ function photographerMedias(photographer){
             section.appendChild(userCardDOM);
         }
 
+        addMediaLike(media)
+
     });
+
 }
 
 export { photographerMedias }

@@ -338,3 +338,7 @@ form input {
     color: white;
 }
 
+.fa-heart:hover {
+    cursor: pointer;
+}
+
