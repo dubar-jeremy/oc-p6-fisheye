@@ -26,7 +26,7 @@ function mediaFactory(medias) {
             data: medias,
             options: {
                 cardPicture: { picture: picture, className: ['photo'], ariaLabel: "test", alt: title },
-                cardLikes: { content: likes, id: medias.id },
+                cardLikes: { content: likes, id: medias.id, ariaLabel: `nombre de j'aime: ${likes}` },
                 cardTitle: { content: title },
             }
         }
@@ -51,7 +51,7 @@ function mediaFactory(medias) {
             data: medias,
             options: {
                 cardVideo: { src: photographerVideo, className: ['media-video'] },
-                cardLikes: { content: likes, id: medias.id },
+                cardLikes: { content: likes, id: medias.id, ariaLabel: `nombre de j'aime: ${likes}` },
                 cardTitle: { content: title },
             }
         }
@@ -98,8 +98,6 @@ function mediaFactory(medias) {
             data: medias,
             options: {
                 cardVideo: { src: photographerVideo, className: ['media-video'] },
-                cardLikes: { content: 10 },
-                cardPrice: { content: 200 },
             }
         }
 

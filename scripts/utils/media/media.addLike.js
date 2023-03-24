@@ -4,12 +4,16 @@ function addMediaLike(media){
 
     const totalLikes = document.querySelector('.totalLikes');
 
-    heart.addEventListener('click', () => {
+    const addLikes = () => {
         const newCount = Number(initialCounter.innerHTML) + 1;
         initialCounter.innerHTML = newCount;
         const newTotalLikes = Number(totalLikes.innerHTML) + 1;
         totalLikes.innerHTML = newTotalLikes
-    });
+    }
+
+    heart.addEventListener('click', addLikes);
+    heart.addEventListener('keypress', addLikes);
+
 }
 
 export { addMediaLike }

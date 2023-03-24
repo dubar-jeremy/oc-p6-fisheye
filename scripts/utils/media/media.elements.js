@@ -14,11 +14,15 @@ function getMediaElements(props) {
             content: options?.cardLikes?.content ?? '0',
             className: options?.cardLikes?.className ?? ["photo__likes-count"],
             id: options?.cardLikes?.id ?? '',
+            ariaLabel: options?.cardLikes?.ariaLabel ?? '',
+            tabIndex: '0'
         }),
         cardIcon: createElement({
             type: options?.cardIcon?.type ?? 'i',
-            ariaLabel: options?.cardLikes?.ariaLabel ?? 'likes',
-            className: options?.cardIcon?.className ?? ["fa-solid", "fa-heart"]
+            ariaLabel: options?.cardIcon?.ariaLabel ?? 'likes',
+            className: options?.cardIcon?.className ?? ["fa-solid", "fa-heart"],
+            tabIndex: '0'
+
         }),
         cardPrice: createElement({
             type: options?.cardPrice?.type ?? 'span',
