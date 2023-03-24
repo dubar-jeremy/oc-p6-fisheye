@@ -1,5 +1,6 @@
 function addMediaLike(media){
     const initialCounter = document.getElementById(media.id);
+  
     const heart = initialCounter.nextElementSibling;
 
     const totalLikes = document.querySelector('.totalLikes');

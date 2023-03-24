@@ -6,6 +6,7 @@ function photographerElements(props) {
     return {
         cardPicture: createElement({
             type: 'img',
+            id: options?.cardPicture?.id ?? '',
             role: options?.cardPicture?.role ?? 'img',
             alt: options?.cardPicture?.alt ?? `photo de profile de ${data?.name}`,
             src: options?.cardPicture?.picture ?? data?.picture,

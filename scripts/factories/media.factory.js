@@ -7,7 +7,7 @@ import { getUrlParam } from '../utils/getUrlParam.js';
 
 function mediaFactory(medias) {
 
-    const { title, image, video, likes } = medias
+    const { title, image, video, likes, id } = medias
 
     const userId = getUrlParam('userId')
 
@@ -25,7 +25,7 @@ function mediaFactory(medias) {
         const params = {
             data: medias,
             options: {
-                cardPicture: { picture: picture, className: ['photo'], ariaLabel: "test", alt: title },
+                cardPicture: { picture: picture, className: ['photo'], ariaLabel: "test", alt: title, id: `content-${id}` },
                 cardLikes: { content: likes, id: medias.id, ariaLabel: `nombre de j'aime: ${likes}` },
                 cardTitle: { content: title },
             }
@@ -50,7 +50,7 @@ function mediaFactory(medias) {
         const params = {
             data: medias,
             options: {
-                cardVideo: { src: photographerVideo, className: ['media-video'] },
+                cardVideo: { src: photographerVideo, className: ['media-video'], id: `content-${id}` },
                 cardLikes: { content: likes, id: medias.id, ariaLabel: `nombre de j'aime: ${likes}` },
                 cardTitle: { content: title },
             }
@@ -61,6 +61,8 @@ function mediaFactory(medias) {
         const { mainContentContainer } = createMediaContent(params)
 
         appendElement(card, [cardVideo, mainContentContainer])
+
+        
 
         return card;
     }

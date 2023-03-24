@@ -24,6 +24,7 @@ async function displayData(photographer, options = DEFAULT_OPTIONS) {
     sectionInfo && photographerSectionInfo(photographer.media, photographer.photographer.price);
 
     photographerMedias(photographer);
+    
 }
 
 async function init() {
