@@ -1,5 +1,4 @@
 import { mediaFactory } from "../../factories/media.factory.js";
-import { createLightbox } from "../lightbox/create.lightbox.js";
 import { addMediaLike } from "../media/media.addLike.js";
 function photographerMedias(photographer) {
     const section = document.querySelector('.section-work')
@@ -19,9 +18,6 @@ function photographerMedias(photographer) {
         addMediaLike(media)
       
     });
-
-    createLightbox(photographer.media)
-
 }
 
 export { photographerMedias }

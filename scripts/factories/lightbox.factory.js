@@ -2,110 +2,52 @@ import { appendElement } from "../utils/shared/dom/appendElement.js"
 import { createElement } from "../utils/shared/dom/createElement.js"
 
 function lightboxFactory() {
+  function createLightbox() {
 
-    function createLightbox(medias) {
+    const lightbox = createElement({
+      type: 'div',
+      className: ['lightbox']
+    })
 
-        const lightboxMainContainer = createElement({
-            type: 'div',
-            className: ['photographer-lightbox']
-        })
+    const closeBtn = createElement({
+      type: 'span',
+      className: ['close'],
+      content: '&times;'
+    })
 
-        medias.forEach(el => {
-            if(el.image){
-                const picture = `/assets/medias/${el.photographerId}/${el.image}`;
+    const img = createElement({
+      type: 'img',
+      className: ['lightbox-img'],
+      src: '',
+      alt: ''
+    })
 
-                const row = createElement({
-                    type: 'div',
-                    className: ['lightbox-row']
-                })
+    const video = createElement({
+      type: 'video',
+      className: ['lightbox-video'],
+      src: ''
+    })
 
-                const image = createElement({
-                    type: 'img',
-                    alt: 'alt exemple',
-                    className: ['lightbox-content'],
-                    src: picture
-        
-                })
+    const previousBtn = createElement({
+      type: 'span',
+      className: ['prev'],
+      content: ">&#1009"
+    })
 
-                const lightboxText = createElement({
-                    type: 'p',
-                    className: ['lightbox-text'],
-                    content: 'toto'
-                })
+    const nextBtn = createElement({
+      type: 'span',
+      className: ['next'],
+      content: ">&#1009"
+    })
 
-                const next = createElement({
-                    type: 'i',
-                    className: ["fa-solid", "fa-arrow-right"],
-                })
+    appendElement(lightbox, [closeBtn, img, video, previousBtn, nextBtn])
 
-                const previous = createElement({
-                    type: 'i',
-                    className: ["fa-solid", "fa-arrow-left"],
-                })
+    document.body.appendChild(lightbox)
 
-                appendElement(row, [previous, image, lightboxText, next])
-                appendElement(lightboxMainContainer, [row])
-            }
+    return lightbox
+  }
 
-            if(el.video){
-                const photographerVideo = `/assets/medias/${el.photographerId}/${el.video}`;
-
-                const row = createElement({
-                    type: 'div',
-                    className: ['lightbox-row']
-                })
-
-                const video = createElement({
-                    type: 'video',
-                    className: ['lightbox-content'],
-                    src: photographerVideo
-                })
-
-
-                const lightboxText = createElement({
-                    type: 'p',
-                    className: ['lightbox-text'],
-                    content: 'toto'
-                })
-
-                const next = createElement({
-                    type: 'i',
-                    className: ["fa-solid", "fa-arrow-right"],
-                })
-
-                const previous = createElement({
-                    type: 'i',
-                    className: ["fa-solid", "fa-arrow-left"],
-                })
-
-                appendElement(row, [previous, video, lightboxText, next])
-
-                appendElement(lightboxMainContainer, [row])
-
-            }
-        });
-
-        const closeBtn = createElement({
-            type: 'button',
-            content: 'fermer',
-            className: ['close_lightbox']
-        })
-
-        const nextBtn = createElement({
-            type: 'button',
-            content: 'next'
-        })
-
-        const prevBtn = createElement({
-            type: 'button',
-            content: 'prev'
-        })
-
-        appendElement(lightboxMainContainer, [nextBtn, prevBtn, closeBtn])
-
-        return lightboxMainContainer
-    }
-    return { lightboxFactory, createLightbox }
+  return { createLightbox }
 }
 
 export { lightboxFactory }
