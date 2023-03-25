@@ -10,9 +10,9 @@ function lightboxFactory() {
     })
 
     const closeBtn = createElement({
-      type: 'span',
+      type: 'button',
       className: ['close'],
-      content: '&times;'
+      content: '<i class="fa-solid fa-xmark"></i>'
     })
 
     const img = createElement({
@@ -29,15 +29,17 @@ function lightboxFactory() {
     })
 
     const previousBtn = createElement({
-      type: 'span',
+      type: 'button',
       className: ['prev'],
-      content: ">&#1009"
+      name: "prev",
+      content: "<i class='fa-solid fa-arrow-left'></i>"
     })
 
     const nextBtn = createElement({
-      type: 'span',
+      type: 'button',
       className: ['next'],
-      content: ">&#1009"
+      name: "next",
+      content: "<i class='fa-solid fa-arrow-right'></i>"
     })
 
     appendElement(lightbox, [closeBtn, img, video, previousBtn, nextBtn])
