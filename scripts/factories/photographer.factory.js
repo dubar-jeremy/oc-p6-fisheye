@@ -6,7 +6,7 @@ import { appendElement } from "../utils/shared/dom/appendElement.js";
 function photographerFactory(data) {
     const { name, portrait, id, city, tagline, price } = data;
 
-    const picture = `/assets/photographers/${portrait}`;
+    const picture = `./assets/photographers/${portrait}`;
     data.picture = picture;
 
     function homePageCard() {
