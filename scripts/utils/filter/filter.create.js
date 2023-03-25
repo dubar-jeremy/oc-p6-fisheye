@@ -18,7 +18,7 @@ function createFilters(photographer) {
             sectionInfo: false,
             createSectionWork: true,
             createSectionFilter: false,
-
+            createLightbox: false
         }
 
         displayData(photographer, options)
@@ -34,6 +34,7 @@ function createFilters(photographer) {
             sectionInfo: false,
             createSectionWork: true,
             createSectionFilter: false,
+            createLightbox: false
 
         }
 
@@ -50,6 +51,7 @@ function createFilters(photographer) {
             sectionInfo: false,
             createSectionWork: true,
             createSectionFilter: false,
+            createLightbox: false
 
         }
 
