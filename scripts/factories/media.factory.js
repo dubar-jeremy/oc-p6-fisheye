@@ -11,8 +11,8 @@ function mediaFactory(medias) {
 
     const userId = getUrlParam('userId')
 
-    const picture = `/assets/medias/${userId}/${image}`;
-    const photographerVideo = `/assets/medias/${userId}/${video}`;
+    const picture = `./assets/medias/${userId}/${image}`;
+    const photographerVideo = `./assets/medias/${userId}/${video}`;
 
 
     function photographerMediasPicture() {
