@@ -11,6 +11,7 @@ function initLightbox() {
   
     medias.forEach((element, index) => {
       element.addEventListener("click", () => {
+        console.log(element)
         lightbox.classList.add("lightbox-open");
         showMedia(element);
         currentIndex = index;

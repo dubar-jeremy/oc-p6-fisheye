@@ -19,7 +19,7 @@ function photographerFactory(data) {
         const params = {
             data: data,
             options: {
-                cardLink: { href: { query: { userId: id } }, page: './photographer.html' },
+                cardLink: { href: { query: { userId: id } }, page: 'oc-p6-fisheye/photographer.html' },
             }
         }
 

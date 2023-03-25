@@ -1,5 +1,6 @@
 import { filterFactory } from "../../factories/filter.factory.js";
 import { displayData } from "../../pages/photographer.page.js";
+import { initLightbox } from "../lightbox/init.lightbox.js";
 import { filterMedias } from "../media/media.filter.js";
 import { cleanDom } from "../photographer/photographer.clean-dom.js";
 import { appendElement } from "../shared/dom/appendElement.js";
@@ -22,6 +23,7 @@ function createFilters(photographer) {
         }
 
         displayData(photographer, options)
+        initLightbox()
     }
 
     const getPopulareMedia = () => {
@@ -39,6 +41,7 @@ function createFilters(photographer) {
         }
 
         displayData(photographer, options)
+        initLightbox()
     }
 
     const getAscMedia = () => {
@@ -56,6 +59,7 @@ function createFilters(photographer) {
         }
 
         displayData(photographer, options)
+        initLightbox()
     }
 
 
