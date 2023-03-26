@@ -25,7 +25,7 @@ function mediaFactory(medias) {
         const params = {
             data: medias,
             options: {
-                cardPicture: { picture: picture, className: ['photo'], ariaLabel: "test", alt: title, id: `content-${id}` },
+                cardPicture: { picture: picture, className: ['photo'], ariaLabel: "test", alt: title, id: `content-${id}`, tabIndex: "0" },
                 cardLikes: { content: likes, id: medias.id, ariaLabel: `nombre de j'aime: ${likes}` },
                 cardTitle: { content: title },
             }

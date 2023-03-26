@@ -1,56 +1,101 @@
 function displayModal(photographerName) {
     const modal = document.getElementById("contact_modal");
-    const contact_me = document.querySelector(".contact_me");
-    const close_btn = document.querySelector('.close_button');
-    close_btn.setAttribute('name', 'close contact form')
-    close_btn.setAttribute('role', 'button')
-    contact_me.innerHTML = 'Contactez moi ' + photographerName
+    const contactTitle = document.querySelector(".contact_me");
+    const closeBtn = document.querySelector(".close_button");
+  
+    closeBtn.setAttribute("name", "close contact form");
+    closeBtn.setAttribute("role", "button");
+    contactTitle.textContent = `Contactez moi ${photographerName}`;
     modal.style.display = "block";
-
-    keyboardFocus()
-}
+  
+    modal.querySelector("[tabindex='0']").focus();
+  }
 
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }
 
-function keyboardFocus() {
+function handleKeyboardNavigation(e) {
     const modal = document.getElementById("contact_modal");
     const sendButton = modal.querySelector("#send_form");
     const firstFocusableElement = modal.querySelector("[tabindex='0']");
-
-    sendButton.addEventListener("keydown", function (e) {
-        if (e.key === "Tab" && !e.shiftKey) {
-            e.preventDefault();
-            firstFocusableElement.focus();
+    const lastFocusableElement = modal.querySelector("#send_form");
+    const focusableElements = modal.querySelectorAll("input, textarea, button, [tabindex='0']");
+  
+    if (e.key === "Escape") {
+      closeModal();
+      return;
+    }
+  
+    if (e.key === "Tab") {
+      e.preventDefault();
+  
+      if (!e.shiftKey && document.activeElement === lastFocusableElement) {
+        firstFocusableElement.focus();
+        return;
+      }
+  
+      if (e.shiftKey && document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus();
+        return;
+      }
+  
+      for (let i = 0; i < focusableElements.length; i++) {
+        if (document.activeElement === focusableElements[i]) {
+          const nextElement = focusableElements[i + (e.shiftKey ? -1 : 1)] || firstFocusableElement;
+          nextElement.focus();
+          break;
         }
-    });
-}
+      }
+    }
+  
+    if (e.key === "Enter" && document.activeElement === sendButton) {
+      handleSubmitForm(e);
+      return;
+    }
+  }
+  
+  
+  
+
+  function handleSubmitForm(e) {
+    e.preventDefault();
+  
+    const form = document.querySelector("#contact_form");
+    const formData = new FormData(form);
+  
+    const data = {};
+  
+    for (let [key, value] of formData.entries()) {
+      data[key] = value;
+    }
+  
+    console.log("formData: ", data);
+  
+    closeModal();
+  }
 
 function renderMondal(photographer) {
-    document.querySelector('.contact_button').addEventListener('click', () => {
-        displayModal(photographer.name)
-    })
-    document.querySelector('.close_button').addEventListener('click', closeModal)
-    document.querySelector('.close_button').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            closeModal()
-        }
+    const contactButton = document.querySelector(".contact_button");
+    const modal = document.getElementById("contact_modal");
+    const closeBtn = document.querySelector(".close_button");
+    const sendButton = modal.querySelector("#send_form");
+  
+    contactButton.addEventListener("click", () => {
+      displayModal(photographer.name);
     });
-
-    document.querySelector('#send_form').addEventListener('click', () => {
-        const form = document.querySelector('#contact_form');
-        const formData = new FormData(form);
-
-        const data = {};
-
-        for (let [key, value] of formData.entries()) {
-          data[key] = value;
-        }
-    
-        console.log("formData: ", data);
-    })
-}
+  
+    modal.addEventListener("keydown", handleKeyboardNavigation);
+  
+    closeBtn.addEventListener("click", closeModal);
+    closeBtn.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        closeModal();
+      }
+    });
+  
+    sendButton.addEventListener("click", handleSubmitForm);
+  }
 
 export { renderMondal }

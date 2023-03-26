@@ -10,7 +10,8 @@ function photographerElements(props) {
             role: options?.cardPicture?.role ?? 'img',
             alt: options?.cardPicture?.alt ?? `photo de profile de ${data?.name}`,
             src: options?.cardPicture?.picture ?? data?.picture,
-            className: options?.cardPicture?.className ?? ['photographer-profile-img']
+            className: options?.cardPicture?.className ?? ['photographer-profile-img'],
+            tabIndex: options?.cardPicture?.tabIndex ?? ''
         }),
         cardLink: createElement({
             type: 'a',

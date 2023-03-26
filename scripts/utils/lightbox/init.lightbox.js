@@ -56,13 +56,11 @@ function initLightbox() {
   lastFocusable.setAttribute("tabindex", "0");
   firstFocusable.focus();
 
-  document.addEventListener("keydown", (event) => {
-
-
-    if (event.key === "Escape") {
-      lightbox.classList.remove("lightbox-open");
-      hideMedia();
-      closeBtn.focus();
+  document.querySelector('.section-work').addEventListener("keydown", (event)  => {
+    if (event.key === "Enter") {
+      lightbox.classList.add("lightbox-open");
+      showMedia(event.target);
+      lightbox.focus();
     }
 
     if (event.key === "ArrowLeft") {
@@ -91,7 +89,7 @@ function initLightbox() {
         event.preventDefault();
         lastFocusable.focus();
       }
-      
+
       if (!event.shiftKey && document.activeElement === lastFocusable) {
         event.preventDefault();
         firstFocusable.focus();
