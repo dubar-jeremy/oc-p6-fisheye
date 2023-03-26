@@ -50,7 +50,7 @@ function mediaFactory(medias) {
         const params = {
             data: medias,
             options: {
-                cardVideo: { src: photographerVideo, className: ['media-video'], id: `content-${id}` },
+                cardVideo: { src: photographerVideo, className: ['media-video'], id: `content-${id}`, alt: title },
                 cardLikes: { content: likes, id: medias.id, ariaLabel: `nombre de j'aime: ${likes}` },
                 cardTitle: { content: title },
             }

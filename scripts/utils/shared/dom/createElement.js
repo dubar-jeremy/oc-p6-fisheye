@@ -38,6 +38,7 @@ function createElement(elementProperties) {
     if(elementProperties.type === "video"){
         const videoSource = document.createElement('source');
         videoSource.setAttribute('src', elementProperties?.src);
+        element.setAttribute("alt", elementProperties?.alt);
         element.appendChild(videoSource);
         element.setAttribute('controls', '');
     }

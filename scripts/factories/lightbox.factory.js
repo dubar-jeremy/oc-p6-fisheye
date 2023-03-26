@@ -32,17 +32,23 @@ function lightboxFactory() {
       type: 'button',
       className: ['prev'],
       name: "prev",
-      content: "<i class='fa-solid fa-arrow-left'></i>"
+      content: "<i class='fa-solid fa-chevron-left'></i>"
     })
 
     const nextBtn = createElement({
       type: 'button',
       className: ['next'],
       name: "next",
-      content: "<i class='fa-solid fa-arrow-right'></i>"
+      content: "<i class='fa-solid fa-chevron-right'></i>"
     })
 
-    appendElement(lightbox, [closeBtn, img, video, previousBtn, nextBtn])
+    const text = createElement({
+      type: 'p',
+      className: ['lightbox-text'],
+      content: ''
+    })
+
+    appendElement(lightbox, [closeBtn, img, video, text, previousBtn, nextBtn])
 
     document.body.appendChild(lightbox)
 

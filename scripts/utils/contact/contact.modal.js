@@ -50,8 +50,6 @@ function renderMondal(photographer) {
         }
     
         console.log("formData: ", data);
-    
-
     })
 }
 

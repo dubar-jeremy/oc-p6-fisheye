@@ -34,6 +34,7 @@ function getMediaElements(props) {
     if(options?.cardVideo){
         elementsList.cardVideo = createElement({
             id: options?.cardVideo?.id ?? '',
+            alt: options?.cardVideo.alt ?? '',
             type: 'video',
             src: options?.cardVideo?.src ?? data?.video,
             className: options?.cardVideo?.className ?? ["card-video"],
