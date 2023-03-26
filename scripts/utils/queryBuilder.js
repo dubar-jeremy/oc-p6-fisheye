@@ -1,6 +1,5 @@
 function queryBuilder({ page, query }) {
 
-    console.log(window.location)
     let url = window.location.origin + '/';
 
     if (page) {

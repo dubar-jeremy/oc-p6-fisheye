@@ -15,9 +15,9 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-function keyboardFocus(){
+function keyboardFocus() {
     const modal = document.getElementById("contact_modal");
-    const sendButton = modal.querySelector(".validate_form");
+    const sendButton = modal.querySelector("#send_form");
     const firstFocusableElement = modal.querySelector("[tabindex='0']");
 
     sendButton.addEventListener("keydown", function (e) {
@@ -38,6 +38,21 @@ function renderMondal(photographer) {
             closeModal()
         }
     });
+
+    document.querySelector('#send_form').addEventListener('click', () => {
+        const form = document.querySelector('#contact_form');
+        const formData = new FormData(form);
+
+        const data = {};
+
+        for (let [key, value] of formData.entries()) {
+          data[key] = value;
+        }
+    
+        console.log("formData: ", data);
+    
+
+    })
 }
 
 export { renderMondal }
