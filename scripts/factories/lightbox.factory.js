@@ -6,13 +6,15 @@ function lightboxFactory() {
 
     const lightbox = createElement({
       type: 'div',
-      className: ['lightbox']
+      className: ['lightbox'],
+      tabIndex: "0",
     })
 
     const closeBtn = createElement({
       type: 'button',
       className: ['close'],
-      content: '<i class="fa-solid fa-xmark"></i>'
+      content: '<i class="fa-solid fa-xmark"></i>',
+      tabIndex: "0",
     })
 
     const img = createElement({
@@ -32,14 +34,16 @@ function lightboxFactory() {
       type: 'button',
       className: ['prev'],
       name: "prev",
-      content: "<i class='fa-solid fa-chevron-left'></i>"
+      content: "<i class='fa-solid fa-chevron-left'></i>",
+      tabIndex: "0",
     })
 
     const nextBtn = createElement({
       type: 'button',
       className: ['next'],
       name: "next",
-      content: "<i class='fa-solid fa-chevron-right'></i>"
+      content: "<i class='fa-solid fa-chevron-right'></i>",
+      tabIndex: "0",
     })
 
     const text = createElement({

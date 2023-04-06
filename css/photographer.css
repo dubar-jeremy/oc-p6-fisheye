@@ -219,11 +219,18 @@ h1 {
     right: 1em;
 }
 
-.container-filter {
+.container-filerby {
+    display: flex;
+    margin: 10px 100px;
+    gap: 1em;
+    font-weight: bold;
+}
+
+.container-select {
     background-color: #901C1C;
     padding: 1em;
     color: white;
-    margin: 10px 100px;
+    text-align: center;
 }
 
 .fa-heart:hover {

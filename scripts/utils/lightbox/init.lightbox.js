@@ -9,71 +9,27 @@ function initLightbox() {
   const nextBtn = document.querySelector(".next");
   let currentIndex = 0;
 
-  lightbox.setAttribute("tabindex", "0");
-  closeBtn.setAttribute("tabindex", "0");
-  prevBtn.setAttribute("tabindex", "0");
-  nextBtn.setAttribute("tabindex", "0");
+  function handleElementClick(element, index) {
+    openLightbox(element, index);
+  }
 
-  closeBtn.focus()
-
-  medias.forEach((element, index) => {
-    element.addEventListener("click", () => {
-      lightbox.classList.add("lightbox-open");
-      showMedia(element);
-      lightbox.focus();
-      currentIndex = index;
-    });
-  });
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = medias.length - 1;
-    }
-    const currentMedia = medias[currentIndex];
-    showMedia(currentMedia);
-  });
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex++;
-    if (currentIndex >= medias.length) {
-      currentIndex = 0;
-    }
-    const currentMedia = medias[currentIndex];
-    showMedia(currentMedia);
-  });
-
-  closeBtn.addEventListener("click", () => {
-    lightbox.classList.remove("lightbox-open");
-    hideMedia();
-  });
-
-  // keyboard navigation
-
-  const firstFocusable = lightbox;
-  const lastFocusable = nextBtn;
-  firstFocusable.setAttribute("tabindex", "0");
-  lastFocusable.setAttribute("tabindex", "0");
-  firstFocusable.focus();
-
-  document.querySelector('.section-work').addEventListener("keydown", (event)  => {
+  function handleElementKeydown(event, element, index) {
     if (event.key === "Enter") {
-      lightbox.classList.add("lightbox-open");
-      showMedia(event.target);
-      lightbox.focus();
+      openLightbox(element, index);
     }
+  }
 
-    if (event.key === "ArrowLeft") {
-      currentIndex--;
-      if (currentIndex < 0) {
-        currentIndex = medias.length - 1;
+  function handleLightboxKeydown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      if (document.activeElement === nextBtn) {
+        prevBtn.focus();
+      } else if (document.activeElement === prevBtn) {
+        closeBtn.focus();
+      } else {
+        nextBtn.focus();
       }
-      const currentMedia = medias[currentIndex];
-      showMedia(currentMedia);
-      prevBtn.focus();
-    }
-
-    if (event.key === "ArrowRight") {
+    } else if (event.key === "ArrowRight") {
       currentIndex++;
       if (currentIndex >= medias.length) {
         currentIndex = 0;
@@ -81,22 +37,60 @@ function initLightbox() {
       const currentMedia = medias[currentIndex];
       showMedia(currentMedia);
       nextBtn.focus();
-    }
-
-    if (event.key === "Tab") {
-
-      if (event.shiftKey && document.activeElement === firstFocusable) {
-        event.preventDefault();
-        lastFocusable.focus();
+    } else if (event.key === "ArrowLeft") {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = medias.length - 1;
       }
-
-      if (!event.shiftKey && document.activeElement === lastFocusable) {
-        event.preventDefault();
-        firstFocusable.focus();
-      }
+      const currentMedia = medias[currentIndex];
+      showMedia(currentMedia);
+      prevBtn.focus();
+    } else if (event.key === "Escape") {
+      lightbox.classList.remove("lightbox-open");
+      hideMedia();
     }
+  }
 
+  function handlePrevBtnClick() {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = medias.length - 1;
+    }
+    const currentMedia = medias[currentIndex];
+    showMedia(currentMedia);
+  }
+
+  function handleNextBtnClick() {
+    currentIndex++;
+    if (currentIndex >= medias.length) {
+      currentIndex = 0;
+    }
+    const currentMedia = medias[currentIndex];
+    showMedia(currentMedia);
+  }
+
+  function handleCloseBtnClick() {
+    lightbox.classList.remove("lightbox-open");
+    hideMedia();
+  }
+
+  function openLightbox(element, index) {
+    lightbox.classList.add("lightbox-open");
+    showMedia(element);
+    currentIndex = index;
+    lightbox.focus();
+  }
+
+  medias.forEach((element, index) => {
+    element.addEventListener("click", () => handleElementClick(element, index));
+    element.addEventListener("keydown", (event) => handleElementKeydown(event, element, index));
   });
+
+  lightbox.addEventListener("keydown", handleLightboxKeydown);
+
+  prevBtn.addEventListener("click", handlePrevBtnClick);
+  nextBtn.addEventListener("click", handleNextBtnClick);
+  closeBtn.addEventListener("click", handleCloseBtnClick);
 }
 
 export { initLightbox };

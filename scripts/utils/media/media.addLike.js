@@ -5,11 +5,16 @@ function addMediaLike(media){
 
     const totalLikes = document.querySelector('.totalLikes');
 
+    let isLiked = false;
+
     const addLikes = () => {
+      if (!isLiked) {
         const newCount = Number(initialCounter.innerHTML) + 1;
         initialCounter.innerHTML = newCount;
         const newTotalLikes = Number(totalLikes.innerHTML) + 1;
-        totalLikes.innerHTML = newTotalLikes
+        totalLikes.innerHTML = newTotalLikes;
+        isLiked = true;
+      }
     }
 
     heart.addEventListener('click', addLikes);
