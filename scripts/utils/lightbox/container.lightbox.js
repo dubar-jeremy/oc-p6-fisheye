@@ -1,6 +1,6 @@
-import { lightboxFactory } from "../../factories/lightbox.factory.js";
+import { lightboxFactory } from '../../factories/lightbox.factory.js'
 
-function lightBoxContainer(){
+function lightBoxContainer() {
     const lightboxModel = lightboxFactory()
     lightboxModel.createLightbox()
 }

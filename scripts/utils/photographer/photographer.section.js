@@ -1,11 +1,11 @@
-import { appendElement } from "../shared/dom/appendElement.js"
-import { createElement } from "../shared/dom/createElement.js"
+import { appendElement } from '../shared/dom/appendElement.js'
+import { createElement } from '../shared/dom/createElement.js'
 
 function photographerSection() {
-    const main = document.querySelector('main');
+    const main = document.querySelector('main')
     const section = createElement({
         type: 'section',
-        className: ['section-work']
+        className: ['section-work'],
     })
 
     appendElement(main, [section])

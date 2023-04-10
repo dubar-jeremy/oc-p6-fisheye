@@ -4,7 +4,8 @@
   "description": "## Démarrer le projet",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "devDependencies": {
     "eslint": "^8.32.0",
     "eslint-plugin-import": "^2.27.5"
+  },
+  "dependencies": {
+    "prettier": "^2.8.7"
   }
 }

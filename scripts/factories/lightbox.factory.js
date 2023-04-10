@@ -1,65 +1,65 @@
-import { appendElement } from "../utils/shared/dom/appendElement.js"
-import { createElement } from "../utils/shared/dom/createElement.js"
+import { appendElement } from '../utils/shared/dom/appendElement.js'
+import { createElement } from '../utils/shared/dom/createElement.js'
 
 function lightboxFactory() {
-  function createLightbox() {
+    function createLightbox() {
+        const lightbox = createElement({
+            type: 'div',
+            className: ['lightbox'],
+            tabIndex: '0',
+        })
 
-    const lightbox = createElement({
-      type: 'div',
-      className: ['lightbox'],
-      tabIndex: "0",
-    })
+        const closeBtn = createElement({
+            type: 'button',
+            className: ['close'],
+            content: '<i class="fa-solid fa-xmark"></i>',
+            tabIndex: '0',
+            name: 'close lightbox button',
+        })
 
-    const closeBtn = createElement({
-      type: 'button',
-      className: ['close'],
-      content: '<i class="fa-solid fa-xmark"></i>',
-      tabIndex: "0",
-    })
+        const img = createElement({
+            type: 'img',
+            className: ['lightbox-img'],
+            src: '',
+            alt: '',
+        })
 
-    const img = createElement({
-      type: 'img',
-      className: ['lightbox-img'],
-      src: '',
-      alt: ''
-    })
+        const video = createElement({
+            type: 'video',
+            className: ['lightbox-video'],
+            src: '',
+        })
 
-    const video = createElement({
-      type: 'video',
-      className: ['lightbox-video'],
-      src: ''
-    })
+        const previousBtn = createElement({
+            type: 'button',
+            className: ['prev'],
+            name: 'prev',
+            content: "<i class='fa-solid fa-chevron-left'></i>",
+            tabIndex: '0',
+        })
 
-    const previousBtn = createElement({
-      type: 'button',
-      className: ['prev'],
-      name: "prev",
-      content: "<i class='fa-solid fa-chevron-left'></i>",
-      tabIndex: "0",
-    })
+        const nextBtn = createElement({
+            type: 'button',
+            className: ['next'],
+            name: 'next',
+            content: "<i class='fa-solid fa-chevron-right'></i>",
+            tabIndex: '0',
+        })
 
-    const nextBtn = createElement({
-      type: 'button',
-      className: ['next'],
-      name: "next",
-      content: "<i class='fa-solid fa-chevron-right'></i>",
-      tabIndex: "0",
-    })
+        const text = createElement({
+            type: 'p',
+            className: ['lightbox-text'],
+            content: '',
+        })
 
-    const text = createElement({
-      type: 'p',
-      className: ['lightbox-text'],
-      content: ''
-    })
+        appendElement(lightbox, [closeBtn, img, video, text, previousBtn, nextBtn])
 
-    appendElement(lightbox, [closeBtn, img, video, text, previousBtn, nextBtn])
+        document.body.appendChild(lightbox)
 
-    document.body.appendChild(lightbox)
+        return lightbox
+    }
 
-    return lightbox
-  }
-
-  return { createLightbox }
+    return { createLightbox }
 }
 
 export { lightboxFactory }
